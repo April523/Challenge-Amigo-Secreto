@@ -138,3 +138,4 @@ function lanzarConfeti() {
 
     setTimeout(() => confeti.remove(), 3000);
 }
+
