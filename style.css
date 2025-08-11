@@ -210,3 +210,34 @@ ul li {
     0% { transform: scale(0.8); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
+
+#sortearBtn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+#sortearBtn.reiniciar {
+    background-color: #f44336;
+    transform: scale(1.05);
+}
+
+#sortearBtn:hover {
+    opacity: 0.9;
+}
+
+/* 🎈 Efecto de rebote */
+#sortearBtn.rebote {
+    animation: rebote 0.5s ease;
+}
+
+@keyframes rebote {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
