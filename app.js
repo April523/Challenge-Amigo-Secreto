@@ -5,14 +5,6 @@ let intentosFallidos = {}; // 🧠 Registro de intentos fallidos por jugador
 // 🎵 Sonido de celebración (opcional)
 const sonidoCelebracion = new Audio("https://www.soundjay.com/human/cheering-01.mp3");
 
-// 🔢 Selección aleatoria segura con Math.floor
-function seleccionarAleatorio(array, excluir = null) {
-    const opciones = excluir ? array.filter(item => item !== excluir) : array;
-    if (opciones.length === 0) return null;
-    const indice = Math.floor(Math.random() * opciones.length);
-    return opciones[indice];
-}
-
 // Función para agregar un amigo a la lista
 function agregarAmigo() {
     const input = document.getElementById("amigo");
@@ -71,7 +63,10 @@ function sortearAmigo() {
                 break;
             }
 
-            const elegido = seleccionarAleatorio(posibles);
+            // 👇 Aquí está el uso explícito de Math.floor
+            const indiceAleatorio = Math.floor(Math.random() * posibles.length);
+            const elegido = posibles[indiceAleatorio];
+
             asignaciones[actual] = elegido;
             disponibles.splice(disponibles.indexOf(elegido), 1);
         }
